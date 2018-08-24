@@ -264,7 +264,8 @@ function init_common(){
 				linux 运行如下指令：
 				<pre>su -c 'setenforce 0'\nchmod -R 777 ".BASIC_PATH.'</pre>';
 	//检查session是否存在
-	if( !file_exists(KOD_SESSION) ||
+	if( !defined('SESSION_PATH_DEFAULT') &&
+		!file_exists(KOD_SESSION) ||
 		!file_exists(KOD_SESSION.'index.html')){
 		mk_dir(KOD_SESSION);
 		touch(KOD_SESSION.'index.html');
@@ -274,7 +275,8 @@ function init_common(){
 	}
 
 	//检查目录权限
-	if( !is_writable(KOD_SESSION) || 
+	if( !defined('SESSION_PATH_DEFAULT') && 
+		!is_writable(KOD_SESSION) || 
 		!is_writable(KOD_SESSION.'index.html') || 
 		!is_writable(DATA_PATH.'system/apps.php') ||
 		!is_writable(DATA_PATH)){

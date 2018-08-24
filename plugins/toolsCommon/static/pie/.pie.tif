@@ -40,18 +40,17 @@ function user_home_path($info){
 
 //挂载插件检测
 function plugin_check_auth($app,$auth){
-	$array = 
-	array(
-		/*<__encode>*/'autoDeskViewer'/*<__encode>*/	=> /*<__encode>*/'Q'/*<__encode>*/,// AutoCAD在线预览
-		/*<__encode>*/'gstarCAD'/*<__encode>*/			=> /*<__encode>*/'P'/*<__encode>*/,// 浩辰CAD预览
-		/*<__encode>*/'fileHistory'/*<__encode>*/		=> /*<__encode>*/'Q'/*<__encode>*/,// 文件历史版本
-		/*<__encode>*/'djoffice'/*<__encode>*/			=> /*<__encode>*/'O'/*<__encode>*/,// 点聚office
-		/*<__encode>*/'fileThumb'/*<__encode>*/			=> /*<__encode>*/'Q'/*<__encode>*/,// PSD预览
-		/*<__encode>*/'onlyoffice'/*<__encode>*/		=> /*<__encode>*/'P'/*<__encode>*/,// onlyoffice在线编辑
-		/*<__encode>*/'systemLog'/*<__encode>*/			=> /*<__encode>*/'P'/*<__encode>*/,// 系统日志
+	$array = array(
+		'autoDeskViewer'	=> 'Q',// AutoCAD在线预览
+		'gstarCAD'			=> 'P',// 浩辰CAD预览
+		'fileHistory'		=> 'Q',// 文件历史版本
+		'djoffice'			=> 'O',// 点聚office
+		'fileThumb'			=> 'Q',// PSD预览
+		'onlyoffice'		=> 'P',// onlyoffice在线编辑
+		'systemLog'			=> 'Q',// 系统日志
 		
-		/*<__encode>*/'ldapAccess'/*<__encode>*/		=> /*<__encode>*/'S'/*<__encode>*/,// AD域账户认证
-		/*<__encode>*/'fileView'/*<__encode>*/			=> /*<__encode>*/'T'/*<__encode>*/,// 文件通用预览API
+		'ldapAccess'		=> 'T',// AD域账户认证
+		'fileView'			=> 'T',// 文件通用预览API
 	);
 	$systemVersion = $GLOBALS['config']['settingSystem']['versionType'];
 	if(isset($array[$app]) && $systemVersion < $array[$app]){
@@ -62,7 +61,7 @@ function plugin_check_auth($app,$auth){
 
 //======================================
 function system_space(){
-	$typeA = /*<__encode>*/"A"/*</__encode>*/;
+	$typeA = "A";
 	$version = $GLOBALS['config']['settingSystem']['versionType'];
 	if($version == $typeA){
 		return false;
@@ -74,13 +73,13 @@ function system_space(){
 function systemMemberData(){
 	global $in;
 	$key = ST.'.'.ACT;
-	$typeA = /*<__encode>*/"A"/*</__encode>*/;
-	$typeO = /*<__encode>*/"O"/*</__encode>*/;
-	$typeP = /*<__encode>*/"P"/*</__encode>*/;
-	$typeQ = /*<__encode>*/"Q"/*</__encode>*/;
-	$typeR = /*<__encode>*/"R"/*</__encode>*/;
-	$typeS = /*<__encode>*/"S"/*</__encode>*/;
-	$typeT = /*<__encode>*/"T"/*</__encode>*/;
+	$typeA = "A";
+	$typeO = "O";
+	$typeP = "P";
+	$typeQ = "Q";
+	$typeR = "R";
+	$typeS = "S";
+	$typeT = "T";
 
 	$version = $GLOBALS['config']['settingSystem']['versionType'];
 	if( !$version || 
@@ -89,13 +88,13 @@ function systemMemberData(){
 	}
 	$sql = new FileCache(USER_SYSTEM.'system_member.php');
 	$limitNum = array(
-		$typeA => /*<__encode>*/5/*</__encode>*/,
-		$typeO => /*<__encode>*/15/*</__encode>*/,
-		$typeP => /*<__encode>*/50/*</__encode>*/,
-		$typeQ => /*<__encode>*/150/*</__encode>*/,
-		$typeR => /*<__encode>*/500/*</__encode>*/,
-		$typeS => /*<__encode>*/1000/*</__encode>*/,
-		$typeT => /*<__encode>*/1000/*</__encode>*/,
+		$typeA => 5,
+		$typeO => 15,
+		$typeP => 50,
+		$typeQ => 150,
+		$typeR => 500,
+		$typeS => 1000,
+		$typeT => 1000,
 	);
 
 	$list = $sql->get();
@@ -150,14 +149,14 @@ function systemMemberData(){
 function systemGroupData(){
 	global $in;
 	$key = ST.'.'.ACT;
-	$typeA = /*<__encode>*/"A"/*</__encode>*/;
-	$typeO = /*<__encode>*/"O"/*</__encode>*/;
-	$typeP = /*<__encode>*/"P"/*</__encode>*/;
-	$typeQ = /*<__encode>*/"Q"/*</__encode>*/;
+	$typeA = "A";
+	$typeO = "O";
+	$typeP = "P";
+	$typeQ = "Q";
 
-	$typeR = /*<__encode>*/"R"/*</__encode>*/;
-	$typeS = /*<__encode>*/"S"/*</__encode>*/;
-	$typeT = /*<__encode>*/"T"/*</__encode>*/;
+	$typeR = "R";
+	$typeS = "S";
+	$typeT = "T";
 
 	$version = $GLOBALS['config']['settingSystem']['versionType'];
 	if( !$version || 
@@ -166,14 +165,14 @@ function systemGroupData(){
 	}
 	$sql = new FileCache(USER_SYSTEM.'system_group.php');
 	$limitNum = array(
-		$typeA	=> /*<__encode>*/1/*</__encode>*/,
-		$typeO	=> /*<__encode>*/5/*</__encode>*/,
-		$typeP	=> /*<__encode>*/20/*</__encode>*/,
-		$typeQ	=> /*<__encode>*/40/*</__encode>*/,
+		$typeA	=> 1,
+		$typeO	=> 5,
+		$typeP	=> 20,
+		$typeQ	=> 40,
 
-		$typeR	=> /*<__encode>*/100/*</__encode>*/,
-		$typeS	=> /*<__encode>*/1000/*</__encode>*/,
-		$typeT	=> /*<__encode>*/1000/*</__encode>*/,
+		$typeR	=> 100,
+		$typeS	=> 1000,
+		$typeT	=> 1000,
 	);
 	$list = $sql->get();
 	$allowNum = $limitNum[$version];
@@ -223,7 +222,7 @@ function systemGroupData(){
 // 权限控制
 function systemRoleData(){
 	$key = ST.'.'.ACT;
-	$typeA = /*<__encode>*/"A"/*</__encode>*/;
+	$typeA = "A";
 	if($key == 'user.versionInstall') {
 		version_install();
 		exit;
@@ -249,15 +248,15 @@ function systemRoleData(){
 // appid&appkey&license&time  A || O P Q
 function init_version_check(){
 	$setting = &$GLOBALS['config']['settingSystem'];
-	$pass = /*<__encode>*/"@dfq[-)&*^*%(_90"/*</__encode>*/;
-	$typeA = /*<__encode>*/"A"/*</__encode>*/;
-	$typeO = /*<__encode>*/"O"/*</__encode>*/;
-	$typeP = /*<__encode>*/"P"/*</__encode>*/;
-	$typeQ = /*<__encode>*/"Q"/*</__encode>*/;
+	$pass = "@dfq[-)&*^*%(_90";
+	$typeA = "A";
+	$typeO = "O";
+	$typeP = "P";
+	$typeQ = "Q";
 
-	$typeR = /*<__encode>*/"R"/*</__encode>*/;
-	$typeS = /*<__encode>*/"S"/*</__encode>*/;
-	$typeT = /*<__encode>*/"T"/*</__encode>*/;
+	$typeR = "R";
+	$typeS = "S";
+	$typeT = "T";
 
 	if( !isset($setting['versionType'])|| 
 		!in_array($setting['versionType'],array($typeA,$typeO,$typeP,$typeQ,$typeR,$typeS,$typeT))){
@@ -331,7 +330,7 @@ function init_version_check(){
 //授权激活
 function version_install(){
 	$setting = &$GLOBALS['config']['settingSystem'];
-	$pass = /*<__encode>*/"@dfq[-)&*^*%(_90"/*</__encode>*/;
+	$pass = "@dfq[-)&*^*%(_90";
 	if(isset($_GET['reset'])){
 		version_reset(true);
 		header("location:./");
@@ -341,7 +340,7 @@ function version_install(){
 		exit;
 	}else{//install	
 		$device_uuid = rand_string(16);
-		$api = /*<__encode>*/"license/index"/*</__encode>*/;
+		$api = "license/index";
 		$api = $GLOBALS['config']['settings']['pluginServer'].$api;
 		$api = str_replace('https://','http://',$api);
 		$request = $api."&code=".$_GET['license_code']."&uuid=".$device_uuid;
@@ -387,7 +386,7 @@ function install_msg($msg,$success=true){
 
 function version_install_path(&$config,$serverData){
 	$timeTo = $serverData['version_time_to'];
-	$pass = /*<__encode>*/"@dfq[-)&*^*%(_90"/*</__encode>*/;
+	$pass = "@dfq[-)&*^*%(_90";
 	$name = ".".substr(md5(rand_string(20).time()),15,10).'.log';
 	
 	$basePath = 'config/i18n/';
@@ -409,7 +408,7 @@ function version_install_path(&$config,$serverData){
 //重置版本信息
 function version_reset($reset_type = false){
 	$setting = &$GLOBALS['config']['settingSystem'];
-	$pass = /*<__encode>*/"@dfq[-)&*^*%(_90"/*</__encode>*/;
+	$pass = "@dfq[-)&*^*%(_90";
 	if(isset($setting['devicePath'])){
 		$path = Mcrypt::decode($setting['devicePath'],md5($pass.$setting['versionLicense']));
 		del_file($path);
